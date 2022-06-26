@@ -63,6 +63,11 @@ header {
     gap: 1px;
 }
 
+.container__stars {
+    display: flex;
+    gap: 5px;
+}
+
 .container__stars img {
     height: 15px;
     width: 15px;

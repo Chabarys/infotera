@@ -68,9 +68,9 @@ function getHotelDetail(hotel) {
 
         return accumulator
     }, '')
-    document.querySelector('.loading').style.display = 'none'
     document.querySelector('.detail__info').innerHTML = hotelDetail
     document.querySelector('.disponibility').innerHTML = hotelDisponibility
+    document.querySelector('.loading').style.display = 'none'
 }
 
 function reserve() {
@@ -80,37 +80,11 @@ function reserve() {
 
 // Função para obter os parametro passados pela URL
 function requestByUrl(name){
-	const arr = window.location.search.substr(1).split('&');
+	const arr = window.location.search.substr(1).split('&')
 	for(const i in arr){
 		if(!isNaN(i) && name === arr[i].split('=')[0]){
-			return arr[i].split('=')[1];
+			return arr[i].split('=')[1]
 		}
 	}
-	return null;
+	return null
 }
-
-
-
-/*
-
-<div class="detail__bedrooms">
-    <div class="detail__hotel">
-        <h4>Superior Twin Room</h4>
-        <div class="detail__text--container">
-            <img src="./assets/icons/details/check.svg" alt="">
-            <span class="detail__text--primary">Cancelamento gratuito</span>
-        </div>
-    </div>
-    <div class="detail__reserve">
-        <div>
-            <p class="detail__price detail__price--bold">R$70 <span class="detail__price--regular">/ noite</span></p>
-            <span class="detail__payment">Pagamento no hotel</span>
-        </div>
-        <div>
-            <button class="button_reserve" onclick="reserve()">Reservar Agora</button>
-        </div>
-    </div>
-</div>
-
-<img src="./assets/icons/details/uncheck.svg" alt="">
-*/

@@ -20,7 +20,7 @@ const input = document.getElementById('input-destination')
 list.style.display = 'none'
 
 input.addEventListener('keyup', () => {
-    removeElements();
+    removeElements()
     if(input.value.length < 3) {
         const listItem = document.createElement('li')
 
@@ -67,7 +67,7 @@ input.addEventListener('keyup', () => {
             list.appendChild(listItemNotFound)
         }
     }
-});
+})
 
 const optionsVisitant = document.querySelector('.options_visitant')
 
@@ -75,7 +75,7 @@ document.querySelector('#quantity-visitants').addEventListener('click', () => {
     document.querySelector('.options_visitant').classList.remove('hide__options')
 })
 
-// Ao clicar em qualquer lugar da tela, devera esconder o dropdown 
+// Ao clicar em qualquer lugar da tela, deverá esconder o dropdown 
 window.addEventListener('click', () => {
     if(document.querySelectorAll('.list-items').length !== 0) {
         removeElements()
@@ -88,7 +88,7 @@ function displaysuggestions(value) {
 }
 
 function removeElements() {
-    const items = document.querySelectorAll('.list-items');
+    const items = document.querySelectorAll('.list-items')
     items.forEach(item => item.remove())
 }
 
@@ -112,7 +112,7 @@ function incrementCounter (field) {
 function decrementCounter (field) {
     let value = parseInt(document.querySelector(`.${field}`).value)
     if(value === 0) {
-        return false;
+        return false
     }
     document.querySelector(`.${field}`).value = --value
 }

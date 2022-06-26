@@ -109,6 +109,13 @@ header {
     width: 12px;
 }
 
+.container__stars {
+    padding-top: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+
 .description__detail {
     width: 100%;
     position: relative;

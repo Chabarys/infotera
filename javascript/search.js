@@ -30,7 +30,9 @@ function displayHotels(hotels) {
                 <div class="card__description">
                     <h4>${hotel.hotel.name}</h4>
                     <div class="description__detail">
-                        ${stars}
+                        <div class="container__stars">
+                            ${stars}
+                        </div>
 
                         <a href="detail.php?id=${hotel.id}" class="field__button--transparent">Ver mais</a>
                     </div>
@@ -39,7 +41,8 @@ function displayHotels(hotels) {
         `
         return accumulator
     }, '')
-    document.querySelector('.loading').style.display = 'none'
+
     document.querySelector('.destination__description').textContent = `${hotels.length} hotéis encontrados`
     document.querySelector('.cards__container').innerHTML = listCards
+    document.querySelector('.loading').style.display = 'none'
 }
