@@ -2,7 +2,7 @@ const idHotel = requestByUrl('id')
 
 async function fetchHotelById (idHotel) {
     try {
-        const response = await fetch(`http://localhost:3333/hotels?id=${idHotel}`)
+        const response = await fetch(`http://localhost:3333/hotels/${idHotel}`)
         const hotel = await response.json()
         getHotelDetail(hotel)
     } catch (error) {
@@ -12,37 +12,34 @@ async function fetchHotelById (idHotel) {
 
 fetchHotelById(idHotel)
 
-const getHotelDetail = hotel => {
-    const hotelDetail = hotel.reduce((accumulator, element) => {
-        let stars = ''
-        for(let i = 0; i < element.hotel.stars; i++) {
-            stars += '<img class="detail__stars" src="./assets/icons/search/star.svg" alt="">'
-        }
+const getHotelDetail = ({ hotel, rooms }) => {
+    let stars = ''
+    for(let i = 0; i < hotel.stars; i++) {
+        stars += '<img class="detail__stars" src="./assets/icons/search/star.svg" alt="">'
+    }
 
-        accumulator += `
-            <div class="detail__image">
-                <img class="detail__image" src="${element.hotel.image}" alt="Hotel">
-            </div>
-            <div class="detail__description">
-                <div class="detail__title">
-                    <h3>${element.hotel.name}</h3>
-                    <div class="detail__address">
-                        <img src="./assets/icons/home/location.svg" alt="">
-                        <span>${element.hotel.address}</span>
-                    </div>
+    const hotelDetail = `
+        <div class="detail__image">
+            <img class="detail__image" src="${hotel.image}" alt="Hotel">
+        </div>
+        <div class="detail__description">
+            <div class="detail__title">
+                <h3>${hotel.name}</h3>
+                <div class="detail__address">
+                    <img src="./assets/icons/home/location.svg" alt="">
+                    <span>${hotel.address}</span>
                 </div>
-                <div class="container__stars">
-                    ${stars}
-                </div>
-                <p>
-                    ${element.hotel.description}
-                </p>
             </div>
-        `
-        return accumulator
-    }, '')
+            <div class="container__stars">
+                ${stars}
+            </div>
+            <p>
+                ${hotel.description}
+            </p>
+        </div>
+    `
 
-    const hotelDisponibility = hotel[0].rooms.reduce((accumulator, element) => {
+    const hotelDisponibility = rooms.reduce((accumulator, element) => {
         const refundable = element.cancellationPolicies.refundable
 
         accumulator += `
@@ -68,6 +65,7 @@ const getHotelDetail = hotel => {
 
         return accumulator
     }, '')
+
     document.querySelector('.detail__info').innerHTML = hotelDetail
     document.querySelector('.disponibility').innerHTML = hotelDisponibility
     document.querySelector('.loading').style.display = 'none'
@@ -79,7 +77,7 @@ const reserve = () => {
 }
 
 // Função para obter os parametro passados pela URL
-const requestByUrl = name => {
+function requestByUrl (name) {
 	const arr = window.location.search.substr(1).split('&')
 	for(const i in arr){
 		if(!isNaN(i) && name === arr[i].split('=')[0]){
