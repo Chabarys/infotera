@@ -1,0 +1,19 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^report/([^\.]+)$ report/$1.php [QSA]
+
+#RewriteRule ^view/([^\.]+)/([^\.]+)$ view/$1.php?id=$2 [QSA]
+#RewriteRule ^view/([^\.]+)/$ view/$1.php [QSA]
+
+#RewriteRule ^view/([^\.]+)$ view/$1.php [QSA]
+
+#RewriteRule ^view/ajax/(.*)$ ajax/$1 [QSA]
+#RewriteRule ^view/css/(.*)$ css/$1 [QSA]
+#RewriteRule ^view/file/(.*)$ file/$1 [QSA]
+#RewriteRule ^view/img/(.*)$ img/$1 [QSA]
+#RewriteRule ^view/js/(.*)$ js/$1 [QSA]

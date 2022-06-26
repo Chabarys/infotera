@@ -24,6 +24,8 @@
     --font-regular: 500;
     --font-semibold: 600;
     --font-bold: 700;
+
+    --small-font-size: 12px;
 }
 
 /*============ RESET CSS ============*/

@@ -43,7 +43,7 @@ header {
 
 .detail__description p, .detail__description span {
     line-height: 26px;
-    font-size: 12px;
+    font-size: var(--small-font-size);
 }
 
 .detail__description h3 {
@@ -101,7 +101,7 @@ header {
 }
 
 .detail__bedrooms span {
-    font-size: 12px;
+    font-size: var(--small-font-size);
     font-weight: var(--font-semibold);
 }
 
@@ -132,7 +132,7 @@ header {
 }
 
 .detail__price--regular {
-    font-size: 12px;
+    font-size: var(--small-font-size);
     font-weight: var(--font-regular);
 }
 
@@ -162,7 +162,7 @@ header {
     background-color: var(--primary-color);
     border: none;
     border-radius: 50px;
-    font-size: 12px;
+    font-size: var(--small-font-size);
     padding: .7rem 1.5rem;
     color: var(--white-color);
     transition: .4s;

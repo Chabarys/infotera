@@ -31,7 +31,7 @@ header {
 }
 
 .destination__description {
-    font-size: 12px;
+    font-size: var(--small-font-size);
     color: var(--caption-color);
 }
 
@@ -84,7 +84,7 @@ header {
 }
 
 .card__price--regular {
-    font-size: 12px;
+    font-size: var(--small-font-size);
     font-weight: var(--font-regular);
     color: var(--gray-color);
 }
@@ -127,7 +127,7 @@ header {
     right: 0;
     background: var(--primary-color);
     border-radius: 50px;
-    font-size: 12px;
+    font-size: var(--small-font-size);
     color: var(--white-color);
     padding: .3rem 1.5rem;
     transition: .4s;

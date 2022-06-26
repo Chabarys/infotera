@@ -1,0 +1,240 @@
+
+.home__fields--container {
+    height: 66px;
+    width: 100%;
+    background-color: var(--white-color);
+    position: relative;
+    top: 25%;
+    border-radius: .7rem;
+    display: flex;
+}
+
+.field__container {
+    position: absolute;
+}
+
+.home__field {
+    background-color: transparent;
+    outline: none;
+    border-radius: .7rem;
+    height: 80%;
+    padding: 20px;
+    margin-top: 15px;
+    border: none;
+    font-size: var(--small-font-size);
+    width: 100%;
+    color: var(--text-color);
+    font-weight: var(--font-bold);
+}
+
+.field__icon {
+    position: absolute;
+    width: 80%;
+    left: 20px;
+    top: .75rem;
+    display: flex;
+    align-items: center;
+}
+
+.space {
+    width: 9px;
+}
+
+.field__label {
+    font-size: .75rem;
+    color: var(--caption-color);
+}
+
+.fields__separator {
+    height: 40px;
+    width: 2px;
+    background-color: var(--light-gray-color);
+    position: absolute;
+    left: 30%;
+    top: 13px;
+}
+
+
+.field__destination {
+    width: 30%;
+    left: 0;
+}
+
+.field__entry_period {
+    width: 20%;
+    left: 30%;
+}
+
+.field__departure_period {
+    width: 25%;
+    left: 50%;
+}
+
+.field__visitant {
+    width: 25%;
+    left: 75%;
+}
+
+.separator-1 {
+    left: 30%;
+}
+
+.separator-2 {
+    left: 50%;
+}
+
+.separator-3 {
+    left: 75%;
+}
+
+.field__button {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 2px 9px 1px rgba(0, 128, 255, 0.29);
+    padding: 8px 22px;
+    cursor: pointer;
+    transition: .4s;
+    font-size: var(--small-font-size);
+}
+
+.field__button:hover {
+    opacity: .8;
+}
+
+.field__list {
+    margin-left: 20px;
+    width: 90%;
+    border-radius: .5rem;
+    background-color: var(--white-color);
+    position: relative;
+    z-index: 10000;
+    display: none;
+}
+
+.field__list li {
+    padding: 20px;
+    transition: .4s;
+    border-radius: .5rem;
+    border-bottom: 2px solid var(--light-gray-color);
+    /* padding: 10px; */
+}
+
+.field__list li:hover {
+    background-color: var(--light-gray-color);
+} 
+
+.list__text__container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.list__text {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-bold);
+    color: var(--text-color);
+}
+
+.list__description {
+    font-size: var(--small-font-size);
+    color: var(--caption-color);
+    margin-left: 25px;
+}
+
+.not__found {
+    padding: 10px !important;
+    color: var(--caption-color);
+    font-size: var(--small-font-size);
+}
+
+.options_visitant {
+    position: relative;
+    background-color: var(--white-color);
+    width: 60%;
+    border-radius: .5rem;
+    left: 10px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    display: flex;
+    z-index: 1000;
+}
+
+.option__container {
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-bold);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.options__fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.circle {
+    border-radius: 100%;
+    background-color: var(--light-gray-color);
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.circle:hover {
+    background-color: var(--gray-color);
+}
+
+.options_visitant--separator {
+    background-color: var(--light-gray-color);
+    height: 2px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.btn__apply {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.btn {
+    position: relative;
+    color: var(--primary-color);
+    background-color: transparent;
+    border: solid 2px var(--primary-color);
+    border-radius: 50px;
+    padding: 2px 7px;
+    width: 50%;
+    cursor: pointer;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-regular);
+    transition: .4s;
+    text-align: center;
+
+}
+
+.quantity_visitants {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    width: 50%;
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-bold);
+
+}
+
+.hide__options {
+    display: none;
+}

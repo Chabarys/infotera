@@ -1,102 +1,82 @@
-const suggestionsNames = []
-let suggestionsSorted = []
-
-async function fetchSuggestions () {
-    try {
-        const response = await fetch('http://localhost:3333/suggestions')
-        const suggestionsList = await response.json()
-        const suggestions = suggestionsList.map(suggestion => suggestion) 
-        suggestionsSorted = suggestions.sort()
-    } catch (error) {
-        console.error(error)
-    }
-}
-
-fetchSuggestions ()
-
 const list = document.querySelector('.field__list')
 const input = document.getElementById('input-destination')
-
-list.style.display = 'none'
+const optionsVisitant = document.querySelector('.options_visitant')
+const quantityVisitant = document.querySelector('#quantity-visitants')
+const btnApplyFilters = document.getElementById('apply_filters')
 
 input.addEventListener('keyup', () => {
     removeElements()
     if(input.value.length < 3) {
         const listItem = document.createElement('li')
 
-        listItem.classList.add('list-items')
-        listItem.classList.add('not-found')
+        listItem.classList.add('list__items')
+        listItem.classList.add('not__found')
         listItem.innerHTML = 'Digite no mínimo 3 caracteres'
         list.style.display = 'block'
 
         list.appendChild(listItem)
     } else {
-        for(let suggestion of suggestionsSorted) {
-            if(suggestion.name.toLowerCase().startsWith(input.value.toLowerCase()) && input.value != '') {
-                const listItem = document.createElement('li')
+        fetchSuggestions(input.value)
+    }
+})
 
-                listItem.classList.add('list-items')
-                listItem.style.cursor = 'pointer'
-                listItem.setAttribute('onclick', `displaysuggestions('${suggestion.name}')`)
+quantityVisitant.addEventListener('click', () => optionsVisitant.classList.remove('hide__options'))
 
-                const element = `
+window.addEventListener('click', () => document.querySelectorAll('.list__items').length !== 0 ? removeElements() : null)
+
+btnApplyFilters.addEventListener('click', () => applyFilters())
+
+async function fetchSuggestions (city) {
+    try {
+        const response = await fetch(`http://localhost:3333/suggestions?name_like=${city}&_limit=5`)
+        const suggestionsList = await response.json()
+        const suggestions = suggestionsList.map(suggestion => suggestion) 
+
+        displaySuggestions(suggestions)
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const displaySuggestions = suggestions => {
+    lisSuggestions = suggestions.reduce((accumulator, suggestion) => {
+            accumulator += `
+                <li class="list__items" style="cursor: pointer" onclick="displaySuggestionsOnInput('${suggestion.name}')">
                     <div class='list__text__container'>
                         <img src="./assets/icons/home/location.svg"> 
                         <p class='list__text'><b>${suggestion.name.substr(0, input.value.lenght)}</b></p>
                     </div>
-                    
+                
                     <div class='list__text__container'>
                         <p class='list__description'><b>${suggestion.region.substr(0, input.value.lenght)}</b></p>
                     </div>
-                `
-                listItem.innerHTML = element
-                list.style.display = 'block'
+                </li>
+            `
+            return accumulator
+    }, '')
 
-                list.appendChild(listItem)
-            }
-        }
-
-        if(document.querySelectorAll('.list-items').length === 0) {
-            const listItemNotFound = document.createElement('li')
-
-            listItemNotFound.classList.add('list-items')
-            listItemNotFound.classList.add('not-found')
-            listItemNotFound.innerHTML = 'Nenhum resultado encontrado'
-            list.style.display = 'block'
-
-            list.appendChild(listItemNotFound)
-        }
+    if(lisSuggestions.length === 0) {
+        lisSuggestions = `
+            <li class="list__items not__found")>
+                Nenhum resultado encontrado
+            </li>
+        `
     }
-})
 
-const optionsVisitant = document.querySelector('.options_visitant')
+    document.querySelector('.field__list').innerHTML = lisSuggestions
+}
 
-document.querySelector('#quantity-visitants').addEventListener('click', () => {
-    document.querySelector('.options_visitant').classList.remove('hide__options')
-})
-
-// Ao clicar em qualquer lugar da tela, deverá esconder o dropdown 
-window.addEventListener('click', () => {
-    if(document.querySelectorAll('.list-items').length !== 0) {
-        removeElements()
-    }
-})
-
-function displaysuggestions(value) {
+const displaySuggestionsOnInput = value => {
     input.value = value
     list.style.display = 'none'
 }
 
-function removeElements() {
-    const items = document.querySelectorAll('.list-items')
+const removeElements = () => {
+    const items = document.querySelectorAll('.list__items')
     items.forEach(item => item.remove())
 }
 
-const btnApplyFilters = document.getElementById('apply_filters')
-
-btnApplyFilters.addEventListener('click', () => applyFilters())
-
-function applyFilters () {
+const applyFilters = () => {
     const quantityAdults = document.querySelector('.adults').value
     const quantityKids = document.querySelector('.kids').value
 
@@ -104,15 +84,14 @@ function applyFilters () {
     document.querySelector('.options_visitant').classList.add('hide__options')
 }
 
-function incrementCounter (field) {
+const incrementCounter = field => {
     let value = parseInt(document.querySelector(`.${field}`).value)
     document.querySelector(`.${field}`).value = ++value
 }
 
-function decrementCounter (field) {
+const decrementCounter = field => {
     let value = parseInt(document.querySelector(`.${field}`).value)
-    if(value === 0) {
-        return false
-    }
+    if(value === 0) return false
+    
     document.querySelector(`.${field}`).value = --value
 }

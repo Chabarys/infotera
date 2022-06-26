@@ -8,5 +8,5 @@ footer {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    font-size: 12px;
+    font-size: var(--small-font-size);
 }

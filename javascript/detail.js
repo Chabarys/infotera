@@ -12,7 +12,7 @@ async function fetchHotelById (idHotel) {
 
 fetchHotelById(idHotel)
 
-function getHotelDetail(hotel) {
+const getHotelDetail = hotel => {
     const hotelDetail = hotel.reduce((accumulator, element) => {
         let stars = ''
         for(let i = 0; i < element.hotel.stars; i++) {
@@ -73,13 +73,13 @@ function getHotelDetail(hotel) {
     document.querySelector('.loading').style.display = 'none'
 }
 
-function reserve() {
+const reserve = () => {
     document.querySelector('.overlay').style.opacity = 1
     document.querySelector('.overlay').classList.add('z-index')
 }
 
 // Função para obter os parametro passados pela URL
-function requestByUrl(name){
+const requestByUrl = name => {
 	const arr = window.location.search.substr(1).split('&')
 	for(const i in arr){
 		if(!isNaN(i) && name === arr[i].split('=')[0]){
