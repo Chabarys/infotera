@@ -1,0 +1,131 @@
+header {
+    background-color: var(--white-color);
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.09);
+}
+
+.navlink__homepage {
+    display: flex !important;
+}
+
+.search {
+    justify-content: center;
+    height: calc(100vh - var(--header-height));
+}
+
+.home__fields--container {
+    top: 1.65rem;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.09);
+}
+
+.searchlist__container {
+    padding-bottom: calc(var(--header-height) + 2rem);
+    padding-top: var(--header-height);
+}
+
+.search__title {
+    font-weight: var(--font-regular);
+}
+
+.home__title--secondary {
+    font-weight: var(--font-bold);
+}
+
+.destination__description {
+    font-size: 12px;
+    color: var(--caption-color);
+}
+
+.cards__container {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.card {
+    background-color: var(--white-color);
+    height: 350px;
+    max-width: 700px;
+    border-radius: .5rem;
+    position: relative;
+    box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.11);
+}
+
+.card__image {
+    position: relative;
+    width: 100%;
+    height: 75%;
+    border-radius: .5rem;
+    z-index: 100;
+}
+
+.card__image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, transparent 0%, var(--gradient-color) 200%);
+    opacity: .5;
+}
+
+.card__image img {
+    background-size: cover;
+    width: 100%;
+    height: 100%; 
+    border-radius: .5rem;
+}
+
+.card__price--bold {
+    font-size: 20px;
+    font-weight: var(--font-semibold);
+    color: var(--white-color);
+}
+
+.card__price--regular {
+    font-size: 12px;
+    font-weight: var(--font-regular);
+    color: var(--gray-color);
+}
+
+.card__price {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    z-index: 100;
+}
+
+.card__description {
+    padding: 1rem .5rem;
+}
+
+.card__description h4 {
+    color: var(--text-color);
+}
+
+.card__stars {
+    height: 12px;
+    width: 12px;
+}
+
+.description__detail {
+    width: 100%;
+    position: relative;
+}
+
+.field__button--transparent {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    background: var(--primary-color);
+    border-radius: 50px;
+    font-size: 12px;
+    color: var(--white-color);
+    padding: .3rem 1.5rem;
+    transition: .4s;
+}
+
+.field__button--transparent:hover {
+    opacity: .8;
+}

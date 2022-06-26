@@ -1,0 +1,12 @@
+footer {
+    height: var(--header-height);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    font-size: 12px;
+}

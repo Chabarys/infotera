@@ -1,0 +1,45 @@
+/*============ GOOGLE FONTS ============*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/*============ VARIABLES CSS ============*/
+
+:root {
+    --header-height: 60px;
+
+    --primary-color: #0080FF;
+    --text-color: #00264D;
+    --caption-color: #698096;
+    --gray-color: #BFCCD9;
+    --light-gray-color: #E3EBF3;
+    --white-color: #FFFFFF;
+    --overlay-color: rgba(18, 57, 82, 0.95);
+    --yellow-color: #F2BF09;
+    --red-color: #FF0000;
+    --green-color: #51B853;
+    --gradient-color: #0080FF;    ;
+ 
+    --body-font: 'Poppins', sans-serif;
+
+    --font-regular: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+}
+
+/*============ RESET CSS ============*/
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: var(--body-font);
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--gray-color);
+}
+
+ul {
+    list-style: none;
+}
