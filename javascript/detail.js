@@ -78,9 +78,9 @@ const reserve = () => {
 
 // Função para obter os parametro passados pela URL
 function requestByUrl (name) {
-	const arr = window.location.search.substr(1).split('&')
-	for(const i in arr){
-		if(!isNaN(i) && name === arr[i].split('=')[0]){
+	const arr = window.location.search.substring(1).split('&')
+	for(const i in arr) {
+		if(!isNaN(i) && name === arr[i].split('=')[0]) {
 			return arr[i].split('=')[1]
 		}
 	}

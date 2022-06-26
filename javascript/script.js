@@ -44,11 +44,11 @@ const displaySuggestions = suggestions => {
                 <li class="list__items" style="cursor: pointer" onclick="displaySuggestionsOnInput('${suggestion.name}')">
                     <div class='list__text__container'>
                         <img src="./assets/icons/home/location.svg"> 
-                        <p class='list__text'><b>${suggestion.name.substr(0, input.value.lenght)}</b></p>
+                        <p class='list__text'><b>${suggestion.name.substring(0, input.value.lenght)}</b></p>
                     </div>
                 
                     <div class='list__text__container'>
-                        <p class='list__description'><b>${suggestion.region.substr(0, input.value.lenght)}</b></p>
+                        <p class='list__description'><b>${suggestion.region.substring(0, input.value.lenght)}</b></p>
                     </div>
                 </li>
             `
