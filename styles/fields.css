@@ -121,7 +121,6 @@
     transition: .4s;
     border-radius: .5rem;
     border-bottom: 2px solid var(--light-gray-color);
-    /* padding: 10px; */
 }
 
 .field__list li:hover {
