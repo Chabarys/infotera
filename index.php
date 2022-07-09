@@ -13,22 +13,22 @@
 
     <title>Infotravel</title>
 </head>
-<body>
-    <?php include './includes/header.php' ?>
-    
-    <main>
-        <section class="home container">
-            <div class="home__title--container">
-                <h1 class="home__title"><span class="home__title--secondary">Os melhores</span> <span class="home__title--primary">hotéis</span> e <span class="home__title--primary">destinos</span> para sua viagem</h1>
-            </div>
-            
-            <?php include './includes/fields.php' ?>
-        </section>
-    </main>
+    <body>
+        <?php include './includes/header.php' ?>
+        
+        <main>
+            <section class="home container">
+                <div class="home__title--container">
+                    <h1 class="home__title"><span class="home__title--secondary">Os melhores</span> <span class="home__title--primary">hotéis</span> e <span class="home__title--primary">destinos</span> para sua viagem</h1>
+                </div>
+                
+                <?php include './includes/fields.php' ?>
+            </section>
+        </main>
 
-    <?php include './includes/footer.php' ?>
+        <?php include './includes/footer.php' ?>
 
-    <script src="./javascript/script.js"></script>
-    
-</body>
+        <script src="./javascript/script.js"></script>
+        
+    </body>
 </html>
